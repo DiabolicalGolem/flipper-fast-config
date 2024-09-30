@@ -13,4 +13,6 @@ REM │    ░░░░░         │                                        �
 REM └──────────────────┴────────────────────────────────────────┘
 
 DEFAULT_STRING_DELAY 50
-STRINGLN sudo apt update | sudo apt full-upgrade | sudo apt -y install git && git clone 
+STRINGLN sudo apt update | sudo apt full-upgrade
+WAIT_FOR_BUTTON_PRESS
+STRINGLN sudo apt -y install git && git clone https://github.com/DiabolicalGolem/flipper-fast-config/blob/main/debian/debian-fullfresh.sh && . debian-fullfresh.sh
