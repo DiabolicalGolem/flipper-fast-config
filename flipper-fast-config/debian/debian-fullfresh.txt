@@ -1,0 +1,16 @@
+REM ┌──────────────────┬────────────────────────────────────────┐
+REM │       █████ █████│ Name: debian-fullfresh.txt             │
+REM │      ░░███ ░░███ │ Author: qY                             │
+REM │  ██████████ ███  │ Description: This script downloads     │
+REM │ ███░░███░█████   │     a `.sh` script that installs       │
+REM │░███ ░███░░███    │     all my essential programs and      │
+REM │░███ ░███ ░███    │     configures the OS to my            │
+REM │░░███████ █████   │     preferences.                       │
+REM │ ░░░░░███░░░░░    │                                        │
+REM │     ░███         │                                        │
+REM │     █████        │                                        │
+REM │    ░░░░░         │                                        │
+REM └──────────────────┴────────────────────────────────────────┘
+
+DEFAULT_STRING_DELAY 50
+STRINGLN sudo apt update | sudo apt full-upgrade | sudo apt -y install git && git clone 
