@@ -3,29 +3,29 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 
 if sudo -n true 2>/dev/null; then
-    echo "${GREEN}Beginning ${NC}\'debian-fullfresh.sh\'"
+    echo -e "${GREEN}Beginning ${NC}\'debian-fullfresh.sh\'"
 else
-    echo "${RED}Please execute as root!"
+    echo -e "${RED}Please execute as root!${NC}"
     exit
 fi
 
-echo "${GREEN}Updating/full-upgrading all APT packages"
+echo -e "${GREEN}Updating/full-upgrading all APT packages${NC}"
 sudo apt update | sudo apt -y full-upgrade
 
-echo "Installing \`git\`, \`tmux\`, and \`vim\`"
+echo -e "${GREEN}Installing \`git\`, \`tmux\`, and \`vim\`${NC}"
 sudo apt install git tmux nvim
 
-echo "Installing 1Password"
-echo "    Adding 1Password repo key"
+echo -e "${GREEN}Installing 1Password${NC}"
+echo -e "    ${GREEN}Adding 1Password repo key${NC}"
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-echo "    Adding 1Password repo"
+echo -e "    ${GREEN}Adding 1Password repo${NC}"
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
-echo "    Add the debsig-verify policy"
+echo -e "    ${GREEN}Add the debsig-verify policy${NC}"
 sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
 curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
 sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-echo "    Installing 1Password"
+echo "    ${GREEN}Installing 1Password${NC}"
 sudo apt update && sudo apt install 1password
 
 rm debian-fullfresh.sh
