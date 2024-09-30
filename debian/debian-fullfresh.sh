@@ -1,12 +1,16 @@
+NC='\033[0m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+
 if sudo -n true 2>/dev/null; then
-    echo "Beginning \'debian-fullfresh.sh\'"
+    echo "${GREEN}Beginning ${NC}\'debian-fullfresh.sh\'"
 else
-    echo "Please execute as root!"
+    echo "${RED}Please execute as root!"
     exit
 fi
 
-echo "Updating/full-upgrading all APT packages"
-sudo apt update | sudo apt full-update
+echo "${GREEN}Updating/full-upgrading all APT packages"
+sudo apt update | sudo apt -y full-upgrade
 
 echo "Installing \`git\`, \`tmux\`, and \`vim\`"
 sudo apt install git tmux nvim

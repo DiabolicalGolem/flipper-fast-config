@@ -13,4 +13,4 @@ REM │    ░░░░░         │                                        �
 REM └──────────────────┴────────────────────────────────────────┘
 
 DEFAULT_STRING_DELAY 50
-STRINGLN wget https://raw.githubusercontent.com/DiabolicalGolem/flipper-fast-config/ced6f5638c848bd3531ebf1a35585f104eb4e688/debian/debian-fullfresh.sh && . debian-fullfresh.sh
+STRINGLN wget https://github.com/DiabolicalGolem/flipper-fast-config/raw/refs/heads/main/debian/debian-fullfresh.sh && . debian-fullfresh.sh
